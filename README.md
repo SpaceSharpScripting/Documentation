@@ -186,6 +186,19 @@ getEnemyChamps()
 */
 getMinions()
 
+// Returns enemy champion stats (champion name and skin id for now)
+// the return value will look like this:
+/*
+[
+	{
+		"championName": "Nasus",
+		"skinID": 0,
+	},
+	// ... next enemy
+]
+*/
+getEnemyChampionStats()
+
 // Moves mouse to x,y position
 moveMouseToPos(int x, int y)
 
