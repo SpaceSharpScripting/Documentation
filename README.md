@@ -152,10 +152,6 @@ readNumberFromScreen(int x, int y, int width, int height)
 */
 searchPixelCluster([[red,green,blue],...], int tolerance = 0, int minPixelAmount = 10, int maxPixelAmount = 1000000, int startX = 0, int startY = 0, int width = -1, int height = -1)
 
-// Callback is executed every 10ms and runs parallel to onForever.
-// This allows to listen on keys or similar on onForeverFast and do heavy processing work in onForever
-onForeverFast()
-
 // This function searches the whole screen for enemy champs and returns them as array.
 // the return value will look like this:
 /*
@@ -287,3 +283,8 @@ function onBeforeAttackChampion() {}
 // This function is called every few milliseconds
 // You could do things like checking if Key is pressed, etc.
 function onForever() {}
+
+
+// Callback is executed every 10ms and runs parallel to onForever.
+// This allows to listen on keys or similar on onForeverFast and do heavy processing work in onForever
+function onForeverFast() {}
