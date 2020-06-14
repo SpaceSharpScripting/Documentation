@@ -131,6 +131,31 @@ getPixelColor(int x, int y)
 // Make sure the area is not way too big otherwise it may detect numbers where no are
 readNumberFromScreen(int x, int y, int width, int height)
 
+// A function which searches a cluster of similar colors on screen
+// This function searches alles pixels with given colors as 2D array and clusters them afterwards in regions
+// tolerance defines the global maximum difference between given colors and pixel found
+// --> tolerance of 5 would mean that the given colors can be up to a difference of 5 different (e.g. r=10, g=20, b=30; found pixel: r=12,g=18, b=30; with tolerance =3 would successfully find this pixel)
+// minPixelAmount is the minimum amount needed to form a valid region/pixel-cluster, which is returned
+// maxPixelAmount is the maximum amount of pixels per region allowed
+// startX and startY are the start position of pixel search, where width and height are the width and height of the area to search through
+// This function returns an array of regions found:
+/*
+[
+    {
+        "x": 123, // left x value
+        "y": 452, // top y value
+        "width": 182,   /
+        "height": 473
+    },
+    // ... next region
+]
+*/
+searchPixelCluster([[red,green,blue],...], int tolerance = 0, int minPixelAmount = 10, int maxPixelAmount = 1000000, int startX = 0, int startY = 0, int width = -1, int height = -1)
+
+// Callback is executed every 10ms and runs parallel to onForever.
+// This allows to listen on keys or similar on onForeverFast and do heavy processing work in onForever
+onForeverFast()
+
 // This function searches the whole screen for enemy champs and returns them as array.
 // the return value will look like this:
 /*
