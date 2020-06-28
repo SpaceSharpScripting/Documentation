@@ -186,6 +186,102 @@ searchAllEnemyChamps()
 */
 getEnemyChamps()
 
+/*
+	Draws an ellipse at given x,y position.
+	The parameters define a rectangle in which the ellipse lies (so x,y is the top left corner of rectangle)
+	toggleTime - time the ellipse stays visible on screen in ms
+*/
+drawEllipse(int x, int y, int width, int height, int toggleTime = 20, string hexColor = "#133713", double opacity = 1d)
+
+/*
+	Draws an rectangle
+	x,y - top left position of rectangle
+	width, height - in pixels of rectangle
+	toggleTime - time the rectangle stays visible on screen in ms
+	hexColor - color of rectangle
+	opacity - tranparency value of rectangle
+*/
+drawRectangle(int x, int y, int width, int height, int toggleTime = 20, string hexColor = "#133713", double opacity = 1d)
+
+/*
+	Returns all items of the player with their id.
+	This function returns an array like this:
+	[
+		{
+			"consumable": "true", // flag which says if item is consumable
+			"canUse": "false", // flag for usable items
+			"count": "3",   // amount of stacks on this item slot
+			"id": "1",		// Id of item
+			"itemId": "1",	// Id of item (itemId == id; they are always both exactly the same)
+			"slot": "4"		// slot item is on
+		},
+		// ... item
+	]
+*/
+getAllPlayerItems()
+
+/*
+	Returns summoner spells of user as array, if you want to check for any specific summoner spell, 
+	just check if the return values contain e.g. "smite":
+	{
+		"d": "rawDescription_smite...",
+		"f": "rawDescription_flash...",
+	}
+*/
+getSummonerSpells()
+
+/*
+	Gets an entry of script configuration by key. Returns empty string if key is not set.
+*/
+getConfigurationEntry(string key)
+
+/*
+	Sets an entry of script configuration by key.
+	value - value to set key to in configuration file
+	If file does not exist, it will be created.
+*/
+setConfigurationEntry(string key, string value)
+
+/*
+	Gets cooldowns of player spells and their positions on screen (only QWER).
+	Returns an array:
+	{
+		"qReady": "1",
+		"qX": "892",
+		"qY": "792",
+		
+		"wReady": "1",
+		"wX": "592",
+		"wY": "702",
+		
+		"eReady": "0",
+		"eX": "192",
+		"eY": "792",
+		
+		"rReady": "1",
+		"rX": "992",
+		"rY": "592",
+	}
+*/
+getCDs()
+
+/*
+	ALWAYS draws the given range around player.
+	DO NOT call this function everytime you want the range to be updated, but
+	ONLY call this function once you want the range to be shown and then not att all again (except you removed range again).
+*/
+drawRange(int range, string hexColor = "#133713", double opacity = 1d)
+
+/*
+	Removes a range earlier added with "drawRange" method
+*/
+removeRange(int range)
+
+/*
+	Returns the champion of player
+*/
+getPlayerChampion()
+
 // Returns all minions found on screen. This function is quite fast as it retrieves the minions from an internal buffer.
 // However use with care as the data provided by this function may be up to ~200ms old. 
 // It will definitely most of the time not work if you click on a minion based on the returned values in this function!
