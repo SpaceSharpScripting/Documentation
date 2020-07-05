@@ -187,6 +187,26 @@ searchAllEnemyChamps()
 getEnemyChamps()
 
 /*
+    returns player position on screen
+    It returns an array, whereby
+    0 - is x and
+    1 - is y
+*/
+getPlayerPos()
+
+/*
+    Starts S# internal kiting without having to hold any key.
+    Will only stop kiting if you call "stopKiting()"
+    detectionKiting - if set to true it will use "Target Only"-Kiting otherwise it uses "Attack Everything"
+*/
+startKiting(detectionKiting)
+
+/*
+    Stops kiting by script
+*/
+stopKiting()
+
+/*
 	Draws an ellipse at given x,y position.
 	The parameters define a rectangle in which the ellipse lies (so x,y is the top left corner of rectangle)
 	toggleTime - time the ellipse stays visible on screen in ms
